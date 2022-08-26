@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="PartyProtuctMasterPage.master.cs" Inherits="PartyProtuctMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="css/StyleMaster.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/JavaScriptMaster.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <asp:LinkButton ID="LinkButton1" CssClass="nav-btn" runat="server" Font-Underline="False" PostBackUrl="~/Party/Party.aspx"><span>Invoice Module</span></asp:LinkButton>
+            &nbsp;
+                <asp:LinkButton ID="LinkButton2" CssClass="nav-btn" runat="server" Font-Underline="False" PostBackUrl="~/Party/Party.aspx">Party</asp:LinkButton>
+            &nbsp;
+                <asp:LinkButton ID="LinkButton3" CssClass="nav-btn" runat="server" Font-Underline="False" PostBackUrl="~/Product/Product.aspx">Product</asp:LinkButton>
+            &nbsp;
+                <asp:LinkButton ID="LinkButton4" CssClass="nav-btn" runat="server" Font-Underline="False" PostBackUrl="~/AssignParty/AssignParty.aspx">Assign Party</asp:LinkButton>
+            &nbsp;
+                <asp:LinkButton ID="LinkButton5" CssClass="nav-btn" runat="server" Font-Underline="False" PostBackUrl="~/ProductRate/ProductRate.aspx">Product Rate</asp:LinkButton>
+            &nbsp;
+                <asp:LinkButton ID="LinkButton6" CssClass="nav-btn" runat="server" Font-Underline="False" PostBackUrl="~/Invoice.aspx">Invoice</asp:LinkButton>
+        </header>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

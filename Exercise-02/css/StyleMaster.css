@@ -1,0 +1,74 @@
+﻿html {
+    font-family: sans-serif
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    background-color: #222222;
+    color: #9D9D8D;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-btn {
+    margin: 0px 10px;
+    padding: 15px 10px;
+    color: gray;
+}
+
+    .nav-btn:hover {
+        color: white;
+    }
+
+.active {
+    background-color: black;
+    color: white;
+}
+
+span {
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading {
+    text-align: center;
+    font-size: 35px;
+    margin: 25px;
+}
+
+.addBtn {
+    text-align: right;
+    width: 45%;
+    margin: auto;
+}
+
+.data {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 30px;
+    width: 70%;
+}
+
+
+.btnAdd {
+    background-color: rgb(240, 173, 78);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.Add-Edit {
+    display: flex;
+    justify-content: center;
+}

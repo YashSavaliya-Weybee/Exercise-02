@@ -1,0 +1,91 @@
+﻿.invoice {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conatiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.generatedInvoice {
+    padding: 40px 0px;
+}
+
+.auto-style15 {
+    width: 156px;
+    height: 72px;
+}
+
+.auto-style16 {
+    width: 16px;
+    height: 72px;
+}
+
+.auto-style17 {
+    width: 284px;
+    height: 72px;
+}
+
+.auto-style18 {
+    width: 156px;
+    height: 43px;
+}
+
+.auto-style19 {
+    width: 16px;
+    height: 43px;
+}
+
+.auto-style20 {
+    width: 284px;
+    height: 43px;
+}
+
+.auto-style21 {
+    width: 156px;
+    height: 45px;
+}
+
+.auto-style22 {
+    width: 16px;
+    height: 45px;
+}
+
+.auto-style23 {
+    width: 284px;
+    height: 45px;
+}
+
+.auto-style24 {
+    width: 156px;
+    height: 48px;
+}
+
+.auto-style25 {
+    width: 16px;
+    height: 48px;
+}
+
+.auto-style26 {
+    width: 284px;
+    height: 48px;
+}
+
+.auto-style27 {
+    width: 156px;
+    height: 47px;
+}
+
+.auto-style28 {
+    width: 16px;
+    height: 47px;
+}
+
+.auto-style29 {
+    width: 284px;
+    height: 47px;
+}
