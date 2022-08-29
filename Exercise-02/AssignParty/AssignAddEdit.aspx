@@ -2,43 +2,17 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../css/AssignAddEdit.css" rel="stylesheet" />
-    <style type="text/css">
-        .auto-style14 {
-            width: 666px;
-        }
-        .auto-style15 {
-            width: 539px;
-            height: 42px;
-        }
-        .auto-style16 {
-            width: 539px;
-            height: 44px;
-        }
-        .auto-style17 {
-            width: 539px;
-            height: 59px;
-        }
-        .auto-style18 {
-            width: 193px;
-            height: 42px;
-        }
-        .auto-style19 {
-            width: 193px;
-            height: 44px;
-        }
-        .auto-style20 {
-            width: 193px;
-            height: 59px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="container">
         <div class="heading">
-            Add Assign Party<br />
-            <asp:Label ID="lblMessage" runat="server" EnableViewState="False"></asp:Label>
+            <asp:Label ID="lblHeading" runat="server" Text="Add Assign Party" CssClass="heading"></asp:Label>
+            <asp:ImageButton ID="imgBtnClose" runat="server" PostBackUrl="~/AssignParty/AssignParty.aspx" CssClass="close-icon" ImageUrl="~/images/close-icon.svg" />
         </div>
         <div class="Add-Edit">
+            <asp:Label ID="lblMessage" runat="server" EnableViewState="False"></asp:Label>
+            <br />
+            <br />
             <table class="auto-style14">
                 <tr>
                     <td class="auto-style18">Party Name</td>
@@ -71,8 +45,7 @@
                         &nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnCancel" CssClass="btn btn-sm btn-light" runat="server" BorderStyle="None" Text="Cancel" OnClick="btnCancel_Click" />
                     </td>
-                    <td class="auto-style7">
-                        &nbsp;</td>
+                    <td class="auto-style7">&nbsp;</td>
                 </tr>
             </table>
             <br />

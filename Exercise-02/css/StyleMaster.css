@@ -40,15 +40,31 @@ span {
 }
 
 .heading {
-    text-align: center;
+    width: 100%;
     font-size: 35px;
-    margin: 25px;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.close-icon {
+    width: 20px;
 }
 
 .addBtn {
     text-align: right;
     width: 45%;
     margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lblMessage {
+    width: 100%;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 10%;
 }
 
 .data {
@@ -62,6 +78,7 @@ span {
 
 .btnAdd {
     background-color: rgb(240, 173, 78);
+    height: 5vh;
     color: white;
     border: none;
     padding: 10px;
@@ -70,5 +87,6 @@ span {
 
 .Add-Edit {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }

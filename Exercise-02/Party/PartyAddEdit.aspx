@@ -2,31 +2,33 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../css/PartyAddEdit.css" rel="stylesheet" />
-<style type="text/css">
-    .auto-style8 {
-        width: 569px;
-        margin-bottom: 34px;
-    }
-    .auto-style9 {
-        height: 37px;
-        width: 204px;
-    }
-    .auto-style10 {
-        height: 63px;
-        width: 204px;
-    }
-</style>
+    <style type="text/css">
+        .auto-style8 {
+            width: 569px;
+            margin-bottom: 34px;
+        }
+
+        .auto-style9 {
+            height: 37px;
+            width: 204px;
+        }
+
+        .auto-style10 {
+            height: 63px;
+            width: 204px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="container">
         <div class="heading">
-            Add Party
-            <br />
-            <asp:Label ID="lblMessage" runat="server" EnableViewState="False"></asp:Label>
-            <br />
+            <asp:Label ID="lblHeading" runat="server" Text="Add Party" CssClass="heading"></asp:Label>
+            <asp:ImageButton ID="imgBtnClose" runat="server" PostBackUrl="~/Party/Party.aspx" CssClass="close-icon" ImageUrl="~/images/close-icon.svg" />
         </div>
         <div class="Add-Edit">
-
+            <asp:Label ID="lblMessage" runat="server" EnableViewState="False"></asp:Label>
+            <br />
+            <br />
             <table class="auto-style8">
                 <tr>
                     <td class="auto-style2">Party Name</td>
@@ -47,8 +49,7 @@
                         &nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-sm btn-light" BorderStyle="None" Text="Cancel" OnClick="btnCancel_Click" />
                     </td>
-                    <td class="auto-style7">
-                        &nbsp;</td>
+                    <td class="auto-style7">&nbsp;</td>
                 </tr>
             </table>
         </div>

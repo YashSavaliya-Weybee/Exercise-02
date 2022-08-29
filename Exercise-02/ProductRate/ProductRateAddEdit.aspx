@@ -2,17 +2,17 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../css/ProductRateAddEdit.css" rel="stylesheet" />
-    <style type="text/css">
-        
-        
-    </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="container">
-        <div class="heading">Add Product Rate</div>
+        <div class="heading">
+            <asp:Label ID="lblHeading" runat="server" Text="Add Product Rate" CssClass="heading"></asp:Label>
+            <asp:ImageButton ID="imgBtnClose" runat="server" PostBackUrl="~/ProductRate/ProductRate.aspx" CssClass="close-icon" ImageUrl="~/images/close-icon.svg" />
+        </div>
         <div class="Add-Edit">
+            <asp:Label ID="lblMessage" runat="server" EnableViewState="False"></asp:Label>
             <br />
-            <asp:Label ID="lblMessage" runat="server"></asp:Label>
             <br />
             <table class="auto-style1">
                 <tr>
@@ -40,7 +40,7 @@
                     <td class="auto-style24">Date of Rate</td>
                     <td class="auto-style27">:</td>
                     <td class="auto-style30">
-                        <asp:TextBox ID="txtDateOfRate" runat="server" CssClass="form-control" placeholder="yyyy-mm-dd"></asp:TextBox>
+                        <asp:TextBox ID="txtDateOfRate" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                     </td>
                     <td class="auto-style30">
                         <asp:RequiredFieldValidator ID="rfvDateOfRate" runat="server" ControlToValidate="txtDateOfRate" ErrorMessage="* Enter date of Rate" ForeColor="#FF3300" ValidationGroup="submit"></asp:RequiredFieldValidator>
@@ -55,8 +55,7 @@
                         &nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnCancel" CssClass="btn btn-sm btn-light" runat="server" BorderStyle="None" Text="Cancel" OnClick="btnCancel_Click" />
                     </td>
-                    <td class="auto-style31">
-                        &nbsp;</td>
+                    <td class="auto-style31">&nbsp;</td>
                 </tr>
             </table>
             <br />

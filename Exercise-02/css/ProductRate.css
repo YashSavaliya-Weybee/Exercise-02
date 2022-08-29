@@ -1,2 +1,7 @@
-﻿body {
+﻿.lblMessageProductRate {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 0;
 }

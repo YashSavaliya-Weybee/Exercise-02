@@ -26,8 +26,8 @@
             &nbsp;
                 <asp:LinkButton ID="LinkButton6" CssClass="nav-btn" runat="server" Font-Underline="False" PostBackUrl="~/Invoice.aspx">Invoice</asp:LinkButton>
         </header>
-
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
     </form>
+
 </body>
 </html>

@@ -5,10 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="conatiner">
         <div class="heading">
-            Party List<br />
-            <asp:Label ID="lblMessage" runat="server"></asp:Label>
+            Party List
         </div>
         <div class="addBtn">
+            <asp:Label ID="lblMessage" CssClass="lblMessage" runat="server"></asp:Label>
             <asp:Button ID="btnAddParty" CssClass="btnAdd" runat="server" Text="Add New Party" PostBackUrl="~/Party/PartyAddEdit.aspx" />
         </div>
         <div class="data">

@@ -31,3 +31,38 @@
 .auto-style7 {
     height: 63px;
 }
+
+.auto-style8 {
+    width: 684px;
+    margin-bottom: 34px;
+}
+
+.auto-style9 {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-clip: padding-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .375rem;
+    transition: none;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+}
+
+.auto-style10 {
+    width: 124px;
+    height: 49px;
+}
+
+.auto-style11 {
+    width: 23px;
+    height: 49px;
+}
+
+.auto-style12 {
+    height: 49px;
+}

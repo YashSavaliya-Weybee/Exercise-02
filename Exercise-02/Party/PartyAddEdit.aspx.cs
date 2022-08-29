@@ -24,29 +24,40 @@ public partial class Party_PartyAddEdit : System.Web.UI.Page
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        lblMessage.Text = "";
-        SqlConnection conn = null;
-        try
-        {
-            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Excersice2"].ConnectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("PR_Party_Insert", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@PartyName", txtPartyName.Text.ToString());
-            cmd.ExecuteNonQuery();
-            lblMessage.ForeColor = System.Drawing.Color.Green;
-            lblMessage.Text = "Party " + txtPartyName.Text + " Added Successfully";
-        }
-        catch (Exception ex)
+        string party = txtPartyName.Text.ToString();
+        Boolean flag = checkParty(party);
+
+        if (flag)
         {
             lblMessage.ForeColor = System.Drawing.Color.Red;
-            lblMessage.Text = ex.Message.ToString();
+            lblMessage.Text = "Party " + txtPartyName.Text + " Already exist, Please enter different party";
         }
-        finally
+        else
         {
-            conn.Close();
-            txtPartyName.Text = "";
-            txtPartyName.Focus();
+            lblMessage.Text = "";
+            SqlConnection conn = null;
+            try
+            {
+                conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Excersice2"].ConnectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("PR_Party_Insert", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PartyName", txtPartyName.Text.ToString());
+                cmd.ExecuteNonQuery();
+                lblMessage.ForeColor = System.Drawing.Color.Green;
+                lblMessage.Text = "Party " + txtPartyName.Text + " Added Successfully";
+            }
+            catch (Exception ex)
+            {
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+                lblMessage.Text = ex.Message.ToString();
+            }
+            finally
+            {
+                conn.Close();
+                txtPartyName.Text = "";
+                txtPartyName.Focus();
+            }
         }
     }
 
@@ -104,5 +115,43 @@ public partial class Party_PartyAddEdit : System.Web.UI.Page
         }
         btnSave.Visible = false;
         btnUpdate.Visible = true;
+    }
+    protected Boolean checkParty(String party)
+    {
+        Boolean flag = false;
+        SqlConnection con = null;
+        try
+        {
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["Excersice2"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("PR_Party_SelectAll", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.HasRows)
+            {
+                while (sdr.Read())
+                {
+                    if (sdr.GetString(1).ToLower() == party.ToLower())
+                    {
+                        flag = true;
+                        break;
+                    }
+                    else
+                    {
+                        flag = false;
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            lblMessage.ForeColor = System.Drawing.Color.Red;
+            lblMessage.Text = ex.Message.ToString();
+        }
+        finally
+        {
+            con.Close();
+        }
+        return flag;
     }
 }

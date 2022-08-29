@@ -1,15 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PartyProtuctMasterPage.master" AutoEventWireup="true" CodeFile="ProductRate.aspx.cs" Inherits="ProductRate" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link href="../css/ProductRate.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="conatiner">
         <div class="heading">
-            Product Rate List<br />
-            <asp:Label ID="lblMessage" runat="server"></asp:Label>
+            Product Rate List
         </div>
         <div class="addBtn">
-            <asp:Button ID="btnAddProductRate" CssClass="btnAdd" runat="server" Text="Add New Product Rate" PostBackUrl="~/ProductRate/ProductRateAddEdit.aspx" />
+            <asp:Label ID="lblMessage" CssClass="lblMessageProductRate" runat="server"></asp:Label>
         </div>
         <div class="data">
             <asp:GridView ID="gvProductRate" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="false" OnRowCommand="gvProductRate_RowCommand">

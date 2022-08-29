@@ -5,10 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="conatiner">
         <div class="heading">
-            Assign Party List<br />
-            <asp:Label ID="lblMessage" runat="server"></asp:Label>
+            Assign Party List
         </div>
         <div class="addBtn">
+            <asp:Label ID="lblMessage" CssClass="lblMessage" runat="server"></asp:Label>
             <asp:Button ID="btnAddAssign" CssClass="btnAdd" runat="server" Text="Add New Assign" PostBackUrl="~/AssignParty/AssignAddEdit.aspx" />
         </div>
         <div class="data">
@@ -21,7 +21,7 @@
                     <asp:BoundField DataField="Party_Name" HeaderText="Party Name">
                         <ItemStyle Width="275px"></ItemStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="Product_Name" HeaderText="Product ID">
+                    <asp:BoundField DataField="Product_Name" HeaderText="Product Name">
                         <ItemStyle Width="275px"></ItemStyle>
                     </asp:BoundField>
                     <asp:ButtonField CommandName="edi" ButtonType="Button" ItemStyle-Width="100px" ControlStyle-CssClass="btn btn-info btn-sm" HeaderText="Edit" Text="Edit" />

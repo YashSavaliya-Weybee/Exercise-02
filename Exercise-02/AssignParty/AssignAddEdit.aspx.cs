@@ -77,29 +77,42 @@ public partial class AssignParty_AssignAddEdit : System.Web.UI.Page
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        SqlConnection conn = null;
-        try
-        {
-            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Excersice2"].ConnectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("PR_AssignParty_Insert", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@PartyID", Convert.ToString(ddlPartyName.SelectedValue));
-            cmd.Parameters.AddWithValue("@ProductID", Convert.ToString(ddlProductName.SelectedValue));
-            cmd.ExecuteNonQuery();
-            lblMessage.ForeColor = System.Drawing.Color.Green;
-            lblMessage.Text = "Party " + Convert.ToString(ddlPartyName.SelectedItem.Text) + " assign to Product " + Convert.ToString(ddlProductName.SelectedItem.Text) + " Sucessfully";
-        }
-        catch (Exception ex)
+        int party = Convert.ToInt32(ddlPartyName.SelectedValue);
+        int product = Convert.ToInt32(ddlProductName.SelectedValue);
+        Boolean flag = checkPartyProduct(party, product);
+
+        if (flag)
         {
             lblMessage.ForeColor = System.Drawing.Color.Red;
-            lblMessage.Text = ex.Message.ToString();
+            lblMessage.Text = "Selected Product " + ddlProductName.SelectedItem.Text + " is Already Assigned to Party " + ddlPartyName.SelectedItem.Text + ", Please Select other Product";
         }
-        finally
+        else
         {
-            conn.Close();
-            ddlPartyName.SelectedIndex = 0;
-            ddlProductName.SelectedIndex = 0;
+            SqlConnection conn = null;
+            try
+            {
+                lblMessage.Text = "";
+                conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Excersice2"].ConnectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("PR_AssignParty_Insert", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PartyID", party);
+                cmd.Parameters.AddWithValue("@ProductID", product);
+                cmd.ExecuteNonQuery();
+                lblMessage.ForeColor = System.Drawing.Color.Green;
+                lblMessage.Text = "Party " + Convert.ToString(ddlPartyName.SelectedItem.Text) + " assign to Product " + Convert.ToString(ddlProductName.SelectedItem.Text) + " Sucessfully";
+            }
+            catch (Exception ex)
+            {
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+                lblMessage.Text = ex.Message.ToString();
+            }
+            finally
+            {
+                conn.Close();
+                ddlPartyName.SelectedIndex = 0;
+                ddlProductName.SelectedIndex = 0;
+            }
         }
     }
 
@@ -160,5 +173,43 @@ public partial class AssignParty_AssignAddEdit : System.Web.UI.Page
         }
         btnSave.Visible = false;
         btnUpdate.Visible = true;
+    }
+    protected Boolean checkPartyProduct(int party, int product)
+    {
+        Boolean flag = false;
+        SqlConnection con = null;
+        try
+        {
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["Excersice2"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("PR_AssignParty_SelectAll", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.HasRows)
+            {
+                while (sdr.Read())
+                {
+                    if (sdr.GetInt32(1) == party && sdr.GetInt32(3) == product)
+                    {
+                        flag = true;
+                        break;
+                    }
+                    else
+                    {
+                        flag = false;
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            lblMessage.ForeColor = System.Drawing.Color.Red;
+            lblMessage.Text = ex.Message.ToString();
+        }
+        finally
+        {
+            con.Close();
+        }
+        return flag;
     }
 }

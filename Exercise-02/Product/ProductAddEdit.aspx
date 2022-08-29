@@ -2,31 +2,45 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../css/ProductAddEdit.css" rel="stylesheet" />
-    <style type="text/css">
-        .auto-style8 {
-            width: 568px;
-            margin-bottom: 34px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="container">
         <div class="heading">
-            Add Product
-            <br />
-            <asp:Label ID="lblMessage" runat="server" EnableViewState="False"></asp:Label>
-            <br />
+            <asp:Label ID="lblHeading" runat="server" Text="Add Product" CssClass="heading"></asp:Label>
+            <asp:ImageButton ID="imgBtnClose" runat="server" PostBackUrl="~/Product/Product.aspx" CssClass="close-icon" ImageUrl="~/images/close-icon.svg" />
         </div>
         <div class="Add-Edit">
+            <asp:Label ID="lblMessage" runat="server" EnableViewState="False"></asp:Label><br />
+            <br />
             <table class="auto-style8">
                 <tr>
-                    <td class="auto-style2">Product Name</td>
-                    <td class="auto-style3">:</td>
-                    <td class="auto-style4">
-                        <asp:TextBox ID="txtProductName" CssClass="form-control" runat="server"></asp:TextBox>
+                    <td class="auto-style10">Product Name</td>
+                    <td class="auto-style11">:</td>
+                    <td class="auto-style12">
+                        <asp:TextBox ID="txtProductName" CssClass="auto-style9 form-control" runat="server" Width="301px"></asp:TextBox>
                     </td>
-                    <td class="auto-style4">
+                    <td class="auto-style12">
                         <asp:RequiredFieldValidator ID="rfvProductName" runat="server" ControlToValidate="txtProductName" Display="Dynamic" ErrorMessage="* Enter Product Name" ForeColor="Red" ValidationGroup="submit"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style10">Rate</td>
+                    <td class="auto-style11">:</td>
+                    <td class="auto-style12">
+                        <asp:TextBox ID="txtProductRate" CssClass="auto-style9 form-control" runat="server" Width="301px"></asp:TextBox>
+                    </td>
+                    <td class="auto-style12">
+                        <asp:RequiredFieldValidator ID="rfvProductRate" runat="server" ControlToValidate="txtProductRate" Display="Dynamic" ErrorMessage="* Enter rate" ForeColor="Red" ValidationGroup="submit"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style10">Date of Rate</td>
+                    <td class="auto-style11">:</td>
+                    <td class="auto-style12">
+                        <asp:TextBox ID="txtdateOfRate" runat="server" CssClass="auto-style9 form-control" TextMode="Date" Width="301px"></asp:TextBox>
+                    </td>
+                    <td class="auto-style12">
+                        <asp:RequiredFieldValidator ID="rfvDateOfRate" runat="server" ControlToValidate="txtdateOfRate" Display="Dynamic" ErrorMessage="* Select Date" ForeColor="Red" ValidationGroup="submit"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -38,8 +52,7 @@
                         &nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnCancel" CssClass="btn btn-sm btn-light" runat="server" BorderStyle="None" Text="Cancel" OnClick="btnCancel_Click" />
                     </td>
-                    <td class="auto-style7">
-                        &nbsp;</td>
+                    <td class="auto-style7">&nbsp;</td>
                 </tr>
             </table>
         </div>
